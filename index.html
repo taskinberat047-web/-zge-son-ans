@@ -9,9 +9,13 @@
 <script src="config.js"></script>
 
 <style>
-*{box-sizing:border-box}
+*{
+box-sizing:border-box
+}
 
-html{scroll-behavior:smooth}
+html{
+scroll-behavior:smooth
+}
 
 body{
 margin:0;
@@ -179,7 +183,97 @@ opacity:1;
 transform:none
 }
 
+
+/* GİRİŞ EKRANI */
+
+#giris{
+position:fixed;
+inset:0;
+z-index:99999;
+background:
+radial-gradient(circle at center,#21121b 0%,#08070a 65%);
+display:grid;
+place-items:center;
+text-align:center;
+transition:opacity 1s ease,visibility 1s ease
+}
+
+#giris.kapat{
+opacity:0;
+visibility:hidden;
+pointer-events:none
+}
+
+.giris-kutu{
+width:min(90%,500px);
+padding:35px 25px
+}
+
+.giris-kalp{
+font-size:65px;
+color:#d889aa;
+animation:pulse 1.8s infinite;
+margin-bottom:5px
+}
+
+.giris-kutu .mini{
+font:12px Arial,sans-serif;
+letter-spacing:4px;
+text-transform:uppercase;
+color:#d8a9bd
+}
+
+.giris-kutu h1{
+font-size:clamp(65px,18vw,100px);
+margin:15px 0 5px
+}
+
+.giris-kutu p{
+font-size:18px;
+color:#ddd;
+line-height:1.7
+}
+
+.giris-buton{
+margin-top:25px;
+padding:18px 34px;
+border:1px solid #c57998;
+border-radius:999px;
+background:#a85d7e;
+color:white;
+font:18px Georgia,serif;
+cursor:pointer;
+box-shadow:0 10px 35px #0008;
+transition:.3s
+}
+
+.giris-buton:active{
+transform:scale(.96)
+}
+
+.giris-alt{
+margin-top:20px;
+font-size:13px;
+color:#888
+}
+
+
+/* GİZLİ MÜZİK */
+
+#muzik{
+position:fixed;
+width:1px;
+height:1px;
+left:-100px;
+top:-100px;
+opacity:0;
+pointer-events:none;
+border:0
+}
+
+
 @media(max-width:520px){
+
 p{
 font-size:18px
 }
@@ -191,14 +285,69 @@ padding:28px 18px
 .item{
 font-size:17px
 }
+
+.giris-kutu{
+padding:25px 15px
+}
+
 }
 </style>
 </head>
 
 <body>
 
+
+<!-- GİRİŞ EKRANI -->
+
+<div id="giris">
+
+<div class="giris-kutu">
+
+<div class="giris-kalp">
+♡
+</div>
+
+<div class="mini">
+Sadece Özge için
+</div>
+
+<h1>
+Özge
+</h1>
+
+<p>
+Sana hazırladığım şeyi görmek için<br>
+buraya dokun
+</p>
+
+<button class="giris-buton" onclick="siteyiAc()">
+Buraya dokun ❤️
+</button>
+
+<div class="giris-alt">
+Sadece senin için hazırladım
+</div>
+
+</div>
+
+</div>
+
+
+<!-- MÜZİK OYNATICI -->
+
+<iframe
+id="muzik"
+allow="autoplay"
+title="Berkay - Sen Varsın">
+</iframe>
+
+
+<!-- UÇAN KALPLER -->
+
 <script>
+
 for(let i=0;i<18;i++){
+
 const e=document.createElement('span');
 
 e.className='float';
@@ -214,17 +363,26 @@ e.style.animationDelay=(-Math.random()*15)+'s';
 e.style.fontSize=(12+Math.random()*22)+'px';
 
 document.body.appendChild(e);
+
 }
+
 </script>
 
+
+<!-- ANA SAYFA -->
+
+
 <section>
+
 <div class="wrap content fade">
 
 <div class="small">
 sadece Özge için
 </div>
 
-<h1>Özge</h1>
+<h1>
+Özge
+</h1>
 
 <div class="heart">
 ♡
@@ -243,10 +401,13 @@ Aşağı doğru devam et
 </div>
 
 </div>
+
 </section>
 
 
+
 <section>
+
 <div class="wrap content fade">
 
 <div class="small">
@@ -277,11 +438,15 @@ Sadece bundan sonrasını daha güzel yapabilmem için bana bir fırsat vermeni 
 </div>
 
 </div>
+
 </div>
+
 </section>
 
 
+
 <section>
+
 <div class="wrap content fade">
 
 <div class="small">
@@ -293,34 +458,64 @@ Değiştirmek istediğim şeyler
 </h2>
 
 <div class="item">
-<b>Seni dinlemek</b>
+
+<b>
+Seni dinlemek
+</b>
+
 <br>
+
 Cevap vermek için değil gerçekten seni anlamak için dinlemek istiyorum
+
 </div>
 
+
 <div class="item">
-<b>Sana güvenmek</b>
+
+<b>
+Sana güvenmek
+</b>
+
 <br>
+
 Korkularımı sana yüklemek yerine kendi içimde çözmeyi öğrenmek istiyorum
+
 </div>
 
+
 <div class="item">
-<b>Sana değer vermek</b>
+
+<b>
+Sana değer vermek
+</b>
+
 <br>
+
 Seni sevdiğimi sadece söylemek değil davranışlarımla göstermek istiyorum
+
 </div>
+
 
 <div class="item">
-<b>Sana zaman tanımak</b>
+
+<b>
+Sana zaman tanımak
+</b>
+
 <br>
+
 Her şeyi hemen düzeltmeye çalışmak yerine sana ihtiyacın olan zamanı vermek istiyorum
+
 </div>
 
 </div>
+
 </section>
 
 
+
 <section>
+
 <div class="wrap content fade">
 
 <div class="small">
@@ -354,11 +549,15 @@ Bu kez o gülüşün sebebi olmak için daha çok çabalayacağım
 </p>
 
 </div>
+
 </div>
+
 </section>
 
 
+
 <section>
+
 <div class="wrap content fade">
 
 <div class="small">
@@ -390,8 +589,11 @@ Yine seni seçerdi kalbim
 </div>
 
 </div>
+
 </div>
+
 </section>
+
 
 
 <section class="final">
@@ -413,19 +615,33 @@ Senden geçmişi silmeni değil
 Bundan sonrasını davranışlarımla göstermeme izin vermeni istiyorum
 </p>
 
-<button class="btn yes" onclick="cevap('Bir şans veriyorum ❤️')">
+
+<button
+class="btn yes"
+onclick="cevap('Bir şans veriyorum ❤️')">
+
 Bir şans veriyorum ❤️
+
 </button>
 
-<button class="btn" onclick="cevap('Biraz zamana ihtiyacım var 🤍')">
+
+<button
+class="btn"
+onclick="cevap('Biraz zamana ihtiyacım var 🤍')">
+
 Biraz zamana ihtiyacım var 🤍
+
 </button>
 
-<div id="status" class="status"></div>
+
+<div id="status" class="status">
+</div>
+
 
 <div class="divider">
 ♡
 </div>
+
 
 <p>
 Ne cevap verirsen ver seni zorlamak istemiyorum
@@ -433,16 +649,53 @@ Bu sayfa sadece kalbimde kalanları sana ulaştırmak içindi
 </p>
 
 </div>
+
 </div>
+
 </section>
 
 
+
 <script>
+
+
+/* GİRİŞ VE MÜZİK */
+
+function siteyiAc(){
+
+const giris=document.getElementById('giris');
+
+const muzik=document.getElementById('muzik');
+
+
+/*
+Berkay - Sen Varsın
+YouTube resmi kayıt
+*/
+
+muzik.src=
+'https://www.youtube.com/embed/-GjacQERtzA?autoplay=1&loop=1&playlist=-GjacQERtzA';
+
+
+giris.classList.add('kapat');
+
+
+setTimeout(()=>{
+
+document.body.style.overflowX='hidden';
+
+},1000);
+
+}
+
+
+/* SUPABASE */
 
 const client=supabase.createClient(
 SUPABASE_URL,
 SUPABASE_KEY
 );
+
 
 async function cevap(metin){
 
@@ -450,9 +703,13 @@ const status=document.getElementById('status');
 
 status.textContent='Cevabın gönderiliyor';
 
+
 const {error}=await client
 .from('ozge_cevaplari')
-.insert({cevap:metin});
+.insert({
+cevap:metin
+});
+
 
 if(error){
 
@@ -470,22 +727,37 @@ status.innerHTML=
 
 }
 
+
+/* YAZILARIN ANİMASYONU */
+
 const els=document.querySelectorAll('.fade');
 
-const io=new IntersectionObserver(entries=>{
+
+const io=new IntersectionObserver(
+entries=>{
 
 entries.forEach(e=>{
 
-if(e.isIntersecting)
+if(e.isIntersecting){
+
 e.target.classList.add('show');
+
+}
 
 });
 
-},{threshold:.12});
+},
+{
+threshold:.12
+}
+);
+
 
 els.forEach(e=>io.observe(e));
 
+
 </script>
+
 
 </body>
 </html>

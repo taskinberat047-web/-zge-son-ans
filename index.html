@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Özge'ye...</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#09080b;color:#fff;font-family:Georgia,serif}
+section{min-height:100vh;display:grid;place-items:center;padding:28px}
+.card{max-width:680px;text-align:center}.small{text-transform:uppercase;letter-spacing:4px;color:#d6a8ba;font:12px Arial}
+h1{font-size:clamp(52px,14vw,92px);font-weight:400;font-style:italic;margin:20px 0}
+h2{font-size:38px;font-weight:400;font-style:italic}.heart{color:#d989a9;font-size:32px}
+p{font-size:18px;line-height:1.9;color:#ddd}.box{background:#ffffff08;border:1px solid #ffffff18;border-radius:22px;padding:30px}
+button{padding:16px 25px;border-radius:50px;border:1px solid #ffffff40;background:#ffffff0d;color:#fff;font:16px Georgia;cursor:pointer;margin:7px}
+.yes{background:#a85d7e;border-color:#a85d7e}.status{margin-top:25px;color:#e7bdce;line-height:1.7}
+</style>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="config.js"></script>
+</head>
+<body>
+<section>
+<div class="card">
+<div class="small">sadece Özge için</div>
+<h1>Özge…</h1><div class="heart">♡</div>
+<p>Bu bir ikna yazısı değil. İçimde kalanları sana son kez, gerçekten anlatmak için hazırladım.</p>
+<div class="box">
+<h2>Bana bir şans daha verir misin?</h2>
+<p>Senden geçmişi silmeni değil, bundan sonrasını davranışlarımla göstermeme izin vermeni istiyorum.</p>
+<button class="yes" onclick="cevap('Bir şans veriyorum ❤️')">Bir şans veriyorum ❤️</button>
+<button onclick="cevap('Biraz zamana ihtiyacım var 🤍')">Biraz zamana ihtiyacım var 🤍</button>
+<div id="status" class="status"></div>
+</div>
+</div>
+</section>
+<script>
+const client=supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
+async function cevap(metin){
+ document.getElementById('status').textContent='Cevabın gönderiliyor…';
+ const {error}=await client.from('ozge_cevaplari').insert({cevap:metin});
+ if(error){
+   document.getElementById('status').textContent='Cevap gönderilemedi. İnternet bağlantısını kontrol et.';
+   console.error(error);
+ }else{
+   document.getElementById('status').innerHTML='Cevabın ulaştı 🤍<br>Teşekkür ederim.';
+ }
+}
+</script>
+</body>
+</html>

@@ -3,47 +3,489 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Özge'ye...</title>
-<style>
-*{box-sizing:border-box}body{margin:0;background:#09080b;color:#fff;font-family:Georgia,serif}
-section{min-height:100vh;display:grid;place-items:center;padding:28px}
-.card{max-width:680px;text-align:center}.small{text-transform:uppercase;letter-spacing:4px;color:#d6a8ba;font:12px Arial}
-h1{font-size:clamp(52px,14vw,92px);font-weight:400;font-style:italic;margin:20px 0}
-h2{font-size:38px;font-weight:400;font-style:italic}.heart{color:#d989a9;font-size:32px}
-p{font-size:18px;line-height:1.9;color:#ddd}.box{background:#ffffff08;border:1px solid #ffffff18;border-radius:22px;padding:30px}
-button{padding:16px 25px;border-radius:50px;border:1px solid #ffffff40;background:#ffffff0d;color:#fff;font:16px Georgia;cursor:pointer;margin:7px}
-.yes{background:#a85d7e;border-color:#a85d7e}.status{margin-top:25px;color:#e7bdce;line-height:1.7}
-</style>
+<title>Özgeye son kez</title>
+
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="config.js"></script>
+
+<style>
+*{box-sizing:border-box}
+
+html{scroll-behavior:smooth}
+
+body{
+margin:0;
+background:#08070a;
+color:#fff;
+font-family:Georgia,serif;
+overflow-x:hidden
+}
+
+section{
+min-height:100vh;
+display:grid;
+place-items:center;
+padding:55px 22px;
+position:relative
+}
+
+.wrap{
+width:min(720px,100%);
+text-align:center
+}
+
+.card{
+background:#ffffff08;
+border:1px solid #ffffff18;
+border-radius:28px;
+padding:34px 24px;
+box-shadow:0 20px 80px #0008;
+backdrop-filter:blur(8px)
+}
+
+.small{
+font:12px Arial,sans-serif;
+letter-spacing:4px;
+text-transform:uppercase;
+color:#d8a9bd
+}
+
+h1{
+font-size:clamp(58px,15vw,100px);
+font-weight:400;
+font-style:italic;
+margin:20px 0 8px
+}
+
+h2{
+font-size:clamp(32px,8vw,52px);
+font-weight:400;
+font-style:italic;
+line-height:1.2
+}
+
+p{
+font-size:19px;
+line-height:1.9;
+color:#ddd
+}
+
+.heart{
+font-size:42px;
+color:#d889aa;
+animation:pulse 1.8s infinite
+}
+
+.quote{
+margin:30px 0;
+padding:25px;
+border-left:2px solid #b35d80;
+background:#ffffff06;
+color:#f3cbd8;
+font-size:21px;
+line-height:1.8;
+font-style:italic
+}
+
+.item{
+margin:15px 0;
+padding:22px;
+border:1px solid #ffffff15;
+border-radius:20px;
+background:#ffffff06;
+text-align:left;
+font-size:18px;
+line-height:1.7
+}
+
+.item b{
+color:#e5a9c0
+}
+
+.btn{
+border:1px solid #ffffff35;
+background:#ffffff0b;
+color:#fff;
+border-radius:999px;
+padding:16px 25px;
+font:17px Georgia;
+cursor:pointer;
+margin:8px;
+transition:.25s
+}
+
+.btn:hover{
+transform:translateY(-2px)
+}
+
+.yes{
+background:#a85d7e;
+border-color:#a85d7e
+}
+
+.status{
+margin-top:22px;
+color:#e9b8ca;
+font-size:18px;
+line-height:1.7
+}
+
+.divider{
+font-size:30px;
+color:#b86b89;
+margin:10px
+}
+
+.final{
+padding-bottom:90px
+}
+
+.float{
+position:fixed;
+bottom:-40px;
+color:#e28dad88;
+pointer-events:none;
+animation:rise linear infinite;
+z-index:0
+}
+
+.content{
+position:relative;
+z-index:1
+}
+
+@keyframes rise{
+to{
+transform:translateY(-115vh) rotate(25deg);
+opacity:0
+}
+}
+
+@keyframes pulse{
+50%{
+transform:scale(1.15);
+text-shadow:0 0 25px #d76e9a
+}
+}
+
+.fade{
+opacity:0;
+transform:translateY(25px);
+transition:1s
+}
+
+.fade.show{
+opacity:1;
+transform:none
+}
+
+@media(max-width:520px){
+p{
+font-size:18px
+}
+
+.card{
+padding:28px 18px
+}
+
+.item{
+font-size:17px
+}
+}
+</style>
 </head>
+
 <body>
+
+<script>
+for(let i=0;i<18;i++){
+const e=document.createElement('span');
+
+e.className='float';
+
+e.textContent=Math.random()>.5?'♥':'♡';
+
+e.style.left=Math.random()*100+'vw';
+
+e.style.animationDuration=(9+Math.random()*10)+'s';
+
+e.style.animationDelay=(-Math.random()*15)+'s';
+
+e.style.fontSize=(12+Math.random()*22)+'px';
+
+document.body.appendChild(e);
+}
+</script>
+
 <section>
+<div class="wrap content fade">
+
+<div class="small">
+sadece Özge için
+</div>
+
+<h1>Özge</h1>
+
+<div class="heart">
+♡
+</div>
+
+<p>
+Bu bir ikna yazısı değil
+</p>
+
+<p>
+İçimde kalanları sana son kez gerçekten anlatmak için hazırladım
+</p>
+
+<div class="scroll">
+Aşağı doğru devam et
+</div>
+
+</div>
+</section>
+
+
+<section>
+<div class="wrap content fade">
+
+<div class="small">
+İçimden gelenler
+</div>
+
 <div class="card">
-<div class="small">sadece Özge için</div>
-<h1>Özge…</h1><div class="heart">♡</div>
-<p>Bu bir ikna yazısı değil. İçimde kalanları sana son kez, gerçekten anlatmak için hazırladım.</p>
-<div class="box">
-<h2>Bana bir şans daha verir misin?</h2>
-<p>Senden geçmişi silmeni değil, bundan sonrasını davranışlarımla göstermeme izin vermeni istiyorum.</p>
-<button class="yes" onclick="cevap('Bir şans veriyorum ❤️')">Bir şans veriyorum ❤️</button>
-<button onclick="cevap('Biraz zamana ihtiyacım var 🤍')">Biraz zamana ihtiyacım var 🤍</button>
-<div id="status" class="status"></div>
+
+<h2>
+Sana söylemek istediğim şey
+</h2>
+
+<p>
+Bazen insan sevdiği kişiyi kaybetme korkusuyla yanlış şeyler yapabiliyor
+Ben de hatalar yaptım
+Seni kırdığım ve seni yorduğum anlar oldu
+Bunların hiçbirine bahane bulmak istemiyorum
+</p>
+
+<p>
+Sadece bilmeni istiyorum
+Sana karşı hissettiklerim hiçbir zaman sahte değildi
+</p>
+
+<div class="quote">
+Senden geçmişi silmeni istemiyorum
+Sadece bundan sonrasını daha güzel yapabilmem için bana bir fırsat vermeni istiyorum
+</div>
+
 </div>
 </div>
 </section>
+
+
+<section>
+<div class="wrap content fade">
+
+<div class="small">
+Söz değil davranış
+</div>
+
+<h2>
+Değiştirmek istediğim şeyler
+</h2>
+
+<div class="item">
+<b>Seni dinlemek</b>
+<br>
+Cevap vermek için değil gerçekten seni anlamak için dinlemek istiyorum
+</div>
+
+<div class="item">
+<b>Sana güvenmek</b>
+<br>
+Korkularımı sana yüklemek yerine kendi içimde çözmeyi öğrenmek istiyorum
+</div>
+
+<div class="item">
+<b>Sana değer vermek</b>
+<br>
+Seni sevdiğimi sadece söylemek değil davranışlarımla göstermek istiyorum
+</div>
+
+<div class="item">
+<b>Sana zaman tanımak</b>
+<br>
+Her şeyi hemen düzeltmeye çalışmak yerine sana ihtiyacın olan zamanı vermek istiyorum
+</div>
+
+</div>
+</section>
+
+
+<section>
+<div class="wrap content fade">
+
+<div class="small">
+Çünkü sen
+</div>
+
+<div class="card">
+
+<div class="heart">
+🌹
+</div>
+
+<h2>
+Benim için sıradan biri değilsin
+</h2>
+
+<p>
+Seninle yaşadığım güzel şeyleri unutmadım
+Bir gülüşünü bir bakışını bir mesajını bile unutmadım
+Bende bıraktığın yeri de unutmadım
+</p>
+
+<p>
+Belki her şeyi doğru yapamadım
+Ama sana karşı hissettiğim sevginin gerçekliğinden hiç şüphe etmedim
+</p>
+
+<p>
+Eğer bir gün yeniden gülebilirsek
+Bu kez o gülüşün sebebi olmak için daha çok çabalayacağım
+</p>
+
+</div>
+</div>
+</section>
+
+
+<section>
+<div class="wrap content fade">
+
+<div class="small">
+Küçük bir şiir
+</div>
+
+<div class="card">
+
+<h2>
+Özgem
+</h2>
+
+<p>
+Gözlerin geceye düşen yıldız<br>
+Gülüşün içimde açan bahar<br>
+Adını anınca susar dünya<br>
+Kalbim seni usulca arar
+</p>
+
+<p>
+Bir yanım özlem bir yanım umut<br>
+Her yolum sana çıkar benim<br>
+Bin kez başlasam bu hayata<br>
+Yine seni seçerdi kalbim
+</p>
+
+<div class="heart">
+♥
+</div>
+
+</div>
+</div>
+</section>
+
+
+<section class="final">
+
+<div class="wrap content fade">
+
+<div class="small">
+Son kez soruyorum
+</div>
+
+<div class="card">
+
+<h2>
+Bana bir şans daha verir misin
+</h2>
+
+<p>
+Senden geçmişi silmeni değil
+Bundan sonrasını davranışlarımla göstermeme izin vermeni istiyorum
+</p>
+
+<button class="btn yes" onclick="cevap('Bir şans veriyorum ❤️')">
+Bir şans veriyorum ❤️
+</button>
+
+<button class="btn" onclick="cevap('Biraz zamana ihtiyacım var 🤍')">
+Biraz zamana ihtiyacım var 🤍
+</button>
+
+<div id="status" class="status"></div>
+
+<div class="divider">
+♡
+</div>
+
+<p>
+Ne cevap verirsen ver seni zorlamak istemiyorum
+Bu sayfa sadece kalbimde kalanları sana ulaştırmak içindi
+</p>
+
+</div>
+</div>
+</section>
+
+
 <script>
-const client=supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
+
+const client=supabase.createClient(
+SUPABASE_URL,
+SUPABASE_KEY
+);
+
 async function cevap(metin){
- document.getElementById('status').textContent='Cevabın gönderiliyor…';
- const {error}=await client.from('ozge_cevaplari').insert({cevap:metin});
- if(error){
-   document.getElementById('status').textContent='Cevap gönderilemedi. İnternet bağlantısını kontrol et.';
-   console.error(error);
- }else{
-   document.getElementById('status').innerHTML='Cevabın ulaştı 🤍<br>Teşekkür ederim.';
- }
+
+const status=document.getElementById('status');
+
+status.textContent='Cevabın gönderiliyor';
+
+const {error}=await client
+.from('ozge_cevaplari')
+.insert({cevap:metin});
+
+if(error){
+
+status.textContent=
+'Cevap gönderilemedi internet bağlantısını kontrol et';
+
+console.error(error);
+
+}else{
+
+status.innerHTML=
+'Cevabın ulaştı 🤍<br>Teşekkür ederim';
+
 }
+
+}
+
+const els=document.querySelectorAll('.fade');
+
+const io=new IntersectionObserver(entries=>{
+
+entries.forEach(e=>{
+
+if(e.isIntersecting)
+e.target.classList.add('show');
+
+});
+
+},{threshold:.12});
+
+els.forEach(e=>io.observe(e));
+
 </script>
+
 </body>
 </html>

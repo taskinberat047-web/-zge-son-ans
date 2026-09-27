@@ -1,656 +1,743 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="tr">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Özgeye son kez</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="config.js"></script>
+<title>Özgem ❤️</title>
 
 <style>
+
 *{
-box-sizing:border-box
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
 }
 
 html{
-scroll-behavior:smooth
+    scroll-behavior:smooth;
 }
 
 body{
-margin:0;
-background:#08070a;
-color:#fff;
-font-family:Georgia,serif;
-overflow-x:hidden
+    font-family:Georgia,serif;
+    background:#09070a;
+    color:white;
+    overflow-x:hidden;
 }
+
+/* ARKA PLAN */
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:
+        linear-gradient(
+            rgba(0,0,0,.60),
+            rgba(0,0,0,.78)
+        ),
+        url("ozge.jpg") center center / cover no-repeat;
+    z-index:-2;
+    transform:scale(1.03);
+}
+
+body::after{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255,80,130,.10),
+            transparent 55%
+        );
+    z-index:-1;
+    pointer-events:none;
+}
+
+/* GENEL */
 
 section{
-min-height:100vh;
-display:grid;
-place-items:center;
-padding:55px 22px;
-position:relative
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:70px 22px;
+    position:relative;
 }
 
-.wrap{
-width:min(720px,100%);
-text-align:center
+.container{
+    width:100%;
+    max-width:850px;
+    text-align:center;
 }
 
-.card{
-background:#ffffff08;
-border:1px solid #ffffff18;
-border-radius:28px;
-padding:34px 24px;
-box-shadow:0 20px 80px #0008;
-backdrop-filter:blur(8px)
+/* GİRİŞ */
+
+.hero{
+    min-height:100vh;
 }
 
-.small{
-font:12px Arial,sans-serif;
-letter-spacing:4px;
-text-transform:uppercase;
-color:#d8a9bd
-}
-
-h1{
-font-size:clamp(58px,15vw,100px);
-font-weight:400;
-font-style:italic;
-margin:20px 0 8px
-}
-
-h2{
-font-size:clamp(32px,8vw,52px);
-font-weight:400;
-font-style:italic;
-line-height:1.2
-}
-
-p{
-font-size:19px;
-line-height:1.9;
-color:#ddd
+.hero h1{
+    font-size:clamp(55px,14vw,120px);
+    font-weight:400;
+    letter-spacing:3px;
+    text-shadow:
+        0 0 20px rgba(255,70,120,.6),
+        0 0 50px rgba(255,70,120,.3);
+    animation:heartBeat 2.5s infinite;
 }
 
 .heart{
-font-size:42px;
-color:#d889aa;
-animation:pulse 1.8s infinite
+    display:block;
+    font-size:35px;
+    margin-top:15px;
 }
 
-.quote{
-margin:30px 0;
-padding:25px;
-border-left:2px solid #b35d80;
-background:#ffffff06;
-color:#f3cbd8;
-font-size:21px;
-line-height:1.8;
-font-style:italic
+.scroll{
+    position:absolute;
+    bottom:35px;
+    left:50%;
+    transform:translateX(-50%);
+    font-size:13px;
+    opacity:.65;
+    letter-spacing:3px;
 }
 
-.item{
-margin:15px 0;
-padding:22px;
-border:1px solid #ffffff15;
-border-radius:20px;
-background:#ffffff06;
-text-align:left;
-font-size:18px;
-line-height:1.7
+.scroll span{
+    display:block;
+    margin-top:10px;
+    font-size:20px;
+    animation:down 1.5s infinite;
 }
 
-.item b{
-color:#e5a9c0
+/* KARTLAR */
+
+.card{
+    width:100%;
+    background:rgba(10,8,12,.70);
+    backdrop-filter:blur(12px);
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:25px;
+    padding:40px 28px;
+    box-shadow:
+        0 20px 70px rgba(0,0,0,.45),
+        0 0 40px rgba(255,60,110,.06);
 }
 
-.btn{
-border:1px solid #ffffff35;
-background:#ffffff0b;
-color:#fff;
-border-radius:999px;
-padding:16px 25px;
-font:17px Georgia;
-cursor:pointer;
-margin:8px;
-transition:.25s
+.card h2{
+    font-size:34px;
+    font-weight:400;
+    margin-bottom:28px;
 }
 
-.btn:hover{
-transform:translateY(-2px)
+.card p{
+    font-size:18px;
+    line-height:1.9;
+    color:#f0e8ec;
+    margin-bottom:18px;
 }
 
-.yes{
-background:#a85d7e;
-border-color:#a85d7e
+/* FOTOĞRAF */
+
+.photo-section{
+    padding-top:100px;
+    padding-bottom:100px;
 }
 
-.status{
-margin-top:22px;
-color:#e9b8ca;
-font-size:18px;
-line-height:1.7
+.photo{
+    width:100%;
+    max-width:500px;
+    margin:0 auto 35px;
+    border-radius:25px;
+    overflow:hidden;
+    box-shadow:
+        0 20px 60px rgba(0,0,0,.7),
+        0 0 35px rgba(255,80,130,.15);
+    border:1px solid rgba(255,255,255,.15);
 }
 
-.divider{
-font-size:30px;
-color:#b86b89;
-margin:10px
+.photo img{
+    display:block;
+    width:100%;
+    height:auto;
 }
+
+/* ŞİİR */
+
+.poem{
+    text-align:left;
+}
+
+.poem h2{
+    text-align:center;
+}
+
+.poem p{
+    white-space:pre-line;
+    font-size:17px;
+    line-height:2;
+}
+
+/* SON */
 
 .final{
-padding-bottom:90px
+    min-height:100vh;
 }
 
-.float{
-position:fixed;
-bottom:-40px;
-color:#e28dad88;
-pointer-events:none;
-animation:rise linear infinite;
-z-index:0
+.final h2{
+    font-size:38px;
+    font-weight:400;
+    margin-bottom:30px;
 }
 
-.content{
-position:relative;
-z-index:1
+.final-message{
+    font-size:20px;
+    line-height:2;
+    color:#f5edf1;
 }
 
-@keyframes rise{
-to{
-transform:translateY(-115vh) rotate(25deg);
-opacity:0
-}
+.signature{
+    margin-top:40px;
+    font-size:27px;
+    color:#ffb5c9;
 }
 
-@keyframes pulse{
-50%{
-transform:scale(1.15);
-text-shadow:0 0 25px #d76e9a
+/* BUTON */
+
+.button-area{
+    margin-top:40px;
 }
+
+button{
+    border:none;
+    padding:16px 28px;
+    border-radius:50px;
+    background:rgba(255,75,120,.15);
+    color:white;
+    border:1px solid rgba(255,130,160,.4);
+    font-size:16px;
+    cursor:pointer;
+    transition:.3s;
 }
+
+button:hover{
+    background:rgba(255,75,120,.3);
+    transform:translateY(-2px);
+}
+
+/* GİZLİ MESAJ */
+
+.hidden-message{
+    max-height:0;
+    overflow:hidden;
+    opacity:0;
+    transition:1s ease;
+}
+
+.hidden-message.open{
+    max-height:500px;
+    opacity:1;
+    margin-top:30px;
+}
+
+/* ANİMASYON */
 
 .fade{
-opacity:0;
-transform:translateY(25px);
-transition:1s
+    opacity:0;
+    transform:translateY(35px);
+    transition:1s ease;
 }
 
 .fade.show{
-opacity:1;
-transform:none
+    opacity:1;
+    transform:translateY(0);
 }
 
-
-/* GİRİŞ EKRANI */
-
-#giris{
-position:fixed;
-inset:0;
-z-index:99999;
-background:
-radial-gradient(circle at center,#21121b 0%,#08070a 65%);
-display:grid;
-place-items:center;
-text-align:center;
-transition:opacity 1s ease,visibility 1s ease
+@keyframes heartBeat{
+    0%,100%{
+        transform:scale(1);
+    }
+    50%{
+        transform:scale(1.04);
+    }
 }
 
-#giris.kapat{
-opacity:0;
-visibility:hidden;
-pointer-events:none
+@keyframes down{
+    0%,100%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(8px);
+    }
 }
 
-.giris-kutu{
-width:min(90%,500px);
-padding:35px 25px
-}
+/* TELEFON */
 
-.giris-kalp{
-font-size:65px;
-color:#d889aa;
-animation:pulse 1.8s infinite;
-margin-bottom:5px
-}
+@media(max-width:600px){
 
-.giris-kutu .mini{
-font:12px Arial,sans-serif;
-letter-spacing:4px;
-text-transform:uppercase;
-color:#d8a9bd
-}
+    section{
+        padding:50px 16px;
+    }
 
-.giris-kutu h1{
-font-size:clamp(65px,18vw,100px);
-margin:15px 0 5px
-}
+    .card{
+        padding:30px 20px;
+        border-radius:20px;
+    }
 
-.giris-kutu p{
-font-size:18px;
-color:#ddd;
-line-height:1.7
-}
+    .card h2{
+        font-size:28px;
+    }
 
-.giris-buton{
-margin-top:25px;
-padding:18px 34px;
-border:1px solid #c57998;
-border-radius:999px;
-background:#a85d7e;
-color:white;
-font:18px Georgia,serif;
-cursor:pointer;
-box-shadow:0 10px 35px #0008;
-transition:.3s
-}
+    .card p{
+        font-size:16px;
+        line-height:1.8;
+    }
 
-.giris-buton:active{
-transform:scale(.96)
-}
+    .poem p{
+        font-size:16px;
+        line-height:1.9;
+    }
 
-.giris-alt{
-margin-top:20px;
-font-size:13px;
-color:#888
-}
-
-
-/* GİZLİ MÜZİK */
-
-#muzik{
-position:fixed;
-width:1px;
-height:1px;
-left:-100px;
-top:-100px;
-opacity:0;
-pointer-events:none;
-border:0
-}
-
-
-@media(max-width:520px){
-
-p{
-font-size:18px
-}
-
-.card{
-padding:28px 18px
-}
-
-.item{
-font-size:17px
-}
-
-.giris-kutu{
-padding:25px 15px
-}
+    .final h2{
+        font-size:31px;
+    }
 
 }
+
 </style>
 </head>
 
 <body>
 
 
-<!-- GİRİŞ EKRANI -->
+<!-- GİRİŞ -->
 
-<div id="giris">
+<section class="hero">
 
-<div class="giris-kutu">
+    <div class="container">
 
-<div class="giris-kalp">
-♡
-</div>
+        <h1>Özgem</h1>
 
-<div class="mini">
-Sadece Özge için
-</div>
+        <div class="heart">❤️</div>
 
-<h1>
-Özge
-</h1>
+    </div>
 
-<p>
-Sana hazırladığım şeyi görmek için<br>
-buraya dokun
-</p>
-
-<button class="giris-buton" onclick="siteyiAc()">
-Buraya dokun ❤️
-</button>
-
-<div class="giris-alt">
-Sadece senin için hazırladım
-</div>
-
-</div>
-
-</div>
-
-
-<!-- MÜZİK OYNATICI -->
-
-<iframe
-id="muzik"
-allow="autoplay"
-title="Berkay - Sen Varsın">
-</iframe>
-
-
-<!-- UÇAN KALPLER -->
-
-<script>
-
-for(let i=0;i<18;i++){
-
-const e=document.createElement('span');
-
-e.className='float';
-
-e.textContent=Math.random()>.5?'♥':'♡';
-
-e.style.left=Math.random()*100+'vw';
-
-e.style.animationDuration=(9+Math.random()*10)+'s';
-
-e.style.animationDelay=(-Math.random()*15)+'s';
-
-e.style.fontSize=(12+Math.random()*22)+'px';
-
-document.body.appendChild(e);
-
-}
-
-</script>
-
-
-<!-- ANA SAYFA -->
-
-
-<section>
-
-<div class="wrap content fade">
-
-<div class="small">
-sadece Özge için
-</div>
-
-<h1>
-Özge
-</h1>
-
-<div class="heart">
-♡
-</div>
-
-<p>
-Bu bir ikna yazısı değil
-</p>
-
-<p>
-İçimde kalanları sana son kez gerçekten anlatmak için hazırladım
-</p>
-
-<div class="scroll">
-Aşağı doğru devam et
-</div>
-
-</div>
+    <div class="scroll">
+        Aşağı kaydır
+        <span>↓</span>
+    </div>
 
 </section>
 
 
 
+<!-- İLK MESAJ -->
+
 <section>
 
-<div class="wrap content fade">
+    <div class="container">
 
-<div class="small">
-İçimden gelenler
-</div>
+        <div class="card fade">
 
-<div class="card">
+            <h2>Sana anlatmak istediğim birkaç şey var</h2>
 
-<h2>
-Sana söylemek istediğim şey
-</h2>
+            <p>
+                Senden bir cevap istemiyorum
+            </p>
 
-<p>
-Bazen insan sevdiği kişiyi kaybetme korkusuyla yanlış şeyler yapabiliyor
-Ben de hatalar yaptım
-Seni kırdığım ve seni yorduğum anlar oldu
-Bunların hiçbirine bahane bulmak istemiyorum
-</p>
+            <p>
+                Seni bir karar vermeye zorlamak da istemiyorum
+            </p>
 
-<p>
-Sadece bilmeni istiyorum
-Sana karşı hissettiklerim hiçbir zaman sahte değildi
-</p>
+            <p>
+                Sadece içimde kalanları sana anlatmak istiyorum
+            </p>
 
-<div class="quote">
-Senden geçmişi silmeni istemiyorum
-Sadece bundan sonrasını daha güzel yapabilmem için bana bir fırsat vermeni istiyorum
-</div>
+            <p>
+                Çünkü bazı şeyleri yüz yüze söylerken anlatamadım
+                ama kalbimde olanları artık saklamak istemiyorum
+            </p>
 
-</div>
+        </div>
 
-</div>
+    </div>
 
 </section>
 
 
 
-<section>
+<!-- FOTOĞRAF -->
 
-<div class="wrap content fade">
+<section class="photo-section">
 
-<div class="small">
-Söz değil davranış
-</div>
+    <div class="container">
 
-<h2>
-Değiştirmek istediğim şeyler
-</h2>
+        <div class="photo fade">
 
-<div class="item">
+            <img src="ozge.jpg" alt="Özge">
 
-<b>
-Seni dinlemek
-</b>
+        </div>
 
-<br>
+        <div class="card fade">
 
-Cevap vermek için değil gerçekten seni anlamak için dinlemek istiyorum
+            <p>
+                Sana baktığımda sadece güzelliğini görmüyorum
+            </p>
 
-</div>
+            <p>
+                Gülüşünü
+                sesini
+                konuşmalarımızı
+                birlikte geçirdiğimiz güzel anları
+                ve hayatımda bıraktığın bütün izleri görüyorum
+            </p>
 
+            <p>
+                Benim için sen sıradan biri olmadın
+            </p>
 
-<div class="item">
+            <p>
+                Kalbimde gerçekten özel bir yerin oldu
+            </p>
 
-<b>
-Sana güvenmek
-</b>
+        </div>
 
-<br>
-
-Korkularımı sana yüklemek yerine kendi içimde çözmeyi öğrenmek istiyorum
-
-</div>
-
-
-<div class="item">
-
-<b>
-Sana değer vermek
-</b>
-
-<br>
-
-Seni sevdiğimi sadece söylemek değil davranışlarımla göstermek istiyorum
-
-</div>
-
-
-<div class="item">
-
-<b>
-Sana zaman tanımak
-</b>
-
-<br>
-
-Her şeyi hemen düzeltmeye çalışmak yerine sana ihtiyacın olan zamanı vermek istiyorum
-
-</div>
-
-</div>
+    </div>
 
 </section>
 
 
 
+<!-- ÖZÜR -->
+
 <section>
 
-<div class="wrap content fade">
+    <div class="container">
 
-<div class="small">
-Çünkü sen
-</div>
+        <div class="card fade">
 
-<div class="card">
+            <h2>Özür dilerim</h2>
 
-<div class="heart">
-🌹
-</div>
+            <p>
+                Belki seni kırdığım zamanlar oldu
+            </p>
 
-<h2>
-Benim için sıradan biri değilsin
-</h2>
+            <p>
+                Belki sevgimi göstermeye çalışırken seni yordum
+            </p>
 
-<p>
-Seninle yaşadığım güzel şeyleri unutmadım
-Bir gülüşünü bir bakışını bir mesajını bile unutmadım
-Bende bıraktığın yeri de unutmadım
-</p>
+            <p>
+                Belki bazı şeyleri daha farklı yapmam gerekiyordu
+            </p>
 
-<p>
-Belki her şeyi doğru yapamadım
-Ama sana karşı hissettiğim sevginin gerçekliğinden hiç şüphe etmedim
-</p>
+            <p>
+                Geçmişe dönüp hiçbir şeyi değiştiremiyorum
+                ama yaptığım hataları anlayabiliyorum
+            </p>
 
-<p>
-Eğer bir gün yeniden gülebilirsek
-Bu kez o gülüşün sebebi olmak için daha çok çabalayacağım
-</p>
+            <p>
+                Ve seni kırdığım her şey için gerçekten özür diliyorum
+            </p>
 
-</div>
+        </div>
 
-</div>
+    </div>
 
 </section>
 
 
 
+<!-- SEVGİ -->
+
 <section>
 
-<div class="wrap content fade">
+    <div class="container">
 
-<div class="small">
-Küçük bir şiir
-</div>
+        <div class="card fade">
 
-<div class="card">
+            <h2>Sana vermek istediğim sevgi</h2>
 
-<h2>
-Özgem
-</h2>
+            <p>
+                Eğer bir gün yeniden hayatında yerim olursa
+                sana sadece seni sevdiğimi söylemek istemiyorum
+            </p>
 
-<p>
-Gözlerin geceye düşen yıldız<br>
-Gülüşün içimde açan bahar<br>
-Adını anınca susar dünya<br>
-Kalbim seni usulca arar
-</p>
+            <p>
+                Bunu davranışlarımla göstermek istiyorum
+            </p>
 
-<p>
-Bir yanım özlem bir yanım umut<br>
-Her yolum sana çıkar benim<br>
-Bin kez başlasam bu hayata<br>
-Yine seni seçerdi kalbim
-</p>
+            <p>
+                Sana baskı kurmadan
+            </p>
 
-<div class="heart">
-♥
-</div>
+            <p>
+                Seni değiştirmeye çalışmadan
+            </p>
 
-</div>
+            <p>
+                Seni olduğun gibi kabul ederek
+            </p>
 
-</div>
+            <p>
+                Sana daha fazla güven
+                daha fazla anlayış
+                daha fazla saygı vermek istiyorum
+            </p>
+
+        </div>
+
+    </div>
 
 </section>
 
 
+
+<!-- ŞİİR -->
+
+<section>
+
+    <div class="container">
+
+        <div class="card poem fade">
+
+            <h2>Sana kalan birkaç kelime</h2>
+
+            <p>
+
+Seni sevmek bazen bir cümleye sığmadı
+
+Bazen sustum anlatamadım
+bazen fazla konuştum seni yordum
+
+Ama kalbimde olan hiçbir şey sahte değildi
+
+Seninle güldüğüm günleri
+sesini duyduğum anları
+gözlerine baktığım o küçük zamanları
+
+Hepsini kalbimin en güzel yerine koydum
+
+Belki sana sevgimi göstermeyi her zaman beceremedim
+
+Belki sevgim bazen yanlış yerlere dokundu
+
+Belki seni korumak isterken seni kırdım
+
+Bunun için gerçekten üzgünüm
+
+Keşke bazı anlara geri dönebilsem
+
+Keşke sustuğum yerde konuşabilsem
+
+Konuştuğum yerde biraz daha anlayışlı olabilsem
+
+Ve seni kırdığım her yerde
+seni biraz daha fazla düşünebilsem
+
+Ben senden kusursuz olmamı beklemeni istemiyorum
+
+Sadece değişebileceğimi görmeni istiyorum
+
+Çünkü sana vereceğim sevgi
+seni sahiplenmek değil
+sana saygı duymak olacak
+
+Seni değiştirmeye çalışmak değil
+seni olduğun gibi sevmek olacak
+
+Sana hesap sormak değil
+seni anlamaya çalışmak olacak
+
+Eğer bir gün yeniden yan yana gelirsek
+sana geçmişte yaptığım hataları tekrar yaşatmak istemiyorum
+
+Sana daha sakin bir sevgi
+daha anlayışlı bir kalp
+daha çok güven
+daha çok saygı vermek istiyorum
+
+Belki şu an bunları duymak istemiyorsun
+
+Belki bana inanmak için zamana ihtiyacın var
+
+Bunu da anlayacağım
+
+Çünkü seni gerçekten seviyorsam
+senin kararına da saygı duymayı bilmeliyim
+
+Ben senden hemen affetmeni istemiyorum
+
+Hemen geri dönmeni de istemiyorum
+
+Sadece bir gün beni düşündüğünde
+
+Kalbinde bana dair kötü olan şeylerin yanında
+seni gerçekten seven birinin de olduğunu hatırla
+
+Ben seni bir cevap için sevmedim
+
+Bir karşılık almak için de sevmedim
+
+Ben seni
+sen olduğun için sevdim
+
+Ve eğer bir gün bana yeniden bir şans verirsen
+o şansın değerini sözlerle değil
+davranışlarımla göstermek istiyorum
+
+Seni üzmeden
+
+Seni kırmadan
+
+Seni değiştirmeden
+
+Sana baskı kurmadan
+
+Sadece yanında olarak
+
+Çünkü benim senden istediğim şey
+geçmişi unutman değil
+
+Geçmişte yaptığım hatalara rağmen
+bir gün beni yeniden tanımaya izin vermen
+
+Gerisi bana ait
+
+Seni sevmek
+
+Sana saygı duymak
+
+Ve sana bunu davranışlarımla göstermek
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- SAYGI -->
+
+<section>
+
+    <div class="container">
+
+        <div class="card fade">
+
+            <h2>Kararına saygı duyuyorum</h2>
+
+            <p>
+                Seni zorlamak istemiyorum
+            </p>
+
+            <p>
+                Ne hissediyorsan
+                ne düşünüyorsan
+                buna saygı duyuyorum
+            </p>
+
+            <p>
+                Benden uzak durmak istiyorsan
+                buna da saygı duyacağım
+            </p>
+
+            <p>
+                Çünkü seni gerçekten seviyorsam
+                kendi istediğim şeyi sana kabul ettirmek yerine
+                senin hislerini de önemsemem gerekiyor
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- SON -->
 
 <section class="final">
 
-<div class="wrap content fade">
+    <div class="container">
 
-<div class="small">
-Son kez soruyorum
-</div>
+        <div class="card fade">
 
-<div class="card">
+            <h2>Özgem</h2>
 
-<h2>
-Bana bir şans daha verir misin
-</h2>
+            <div class="final-message">
 
-<p>
-Senden geçmişi silmeni değil
-Bundan sonrasını davranışlarımla göstermeme izin vermeni istiyorum
-</p>
+                <p>
+                    Senden bugün hiçbir şey istemiyorum
+                </p>
 
+                <p>
+                    Sadece bilmeni istiyorum
+                </p>
 
-<button
-class="btn yes"
-onclick="cevap('Bir şans veriyorum ❤️')">
+                <p>
+                    Seni gerçekten seviyorum
+                </p>
 
-Bir şans veriyorum ❤️
+                <p>
+                    Sana değer veriyorum
+                </p>
 
-</button>
+                <p>
+                    Seni kırdığım için pişmanım
+                </p>
 
+                <p>
+                    Ve eğer bir gün beni affedebilirsen
+                    bunun değerini sana sözlerle değil
+                    davranışlarımla göstermek istiyorum
+                </p>
 
-<button
-class="btn"
-onclick="cevap('Biraz zamana ihtiyacım var 🤍')">
+                <p>
+                    Ne karar verirsen ver
+                    sana olan saygımı kaybetmeyeceğim
+                </p>
 
-Biraz zamana ihtiyacım var 🤍
+            </div>
 
-</button>
+            <div class="signature">
+                Seni seviyorum Özgem ❤️
+            </div>
 
+            <div class="button-area">
 
-<div id="status" class="status">
-</div>
+                <button onclick="showMessage()">
+                    Son bir şey
+                </button>
 
+                <div id="message" class="hidden-message">
 
-<div class="divider">
-♡
-</div>
+                    <p style="margin-top:25px;line-height:1.9;">
+                        Bazen bir insanı kaybetme ihtimali
+                        onun hayatımızdaki değerini anlamamızı sağlar
+                    </p>
 
+                    <p style="line-height:1.9;">
+                        Ben seni kaybetme ihtimaliyle
+                        seni ne kadar çok sevdiğimi daha iyi anladım
+                    </p>
 
-<p>
-Ne cevap verirsen ver seni zorlamak istemiyorum
-Bu sayfa sadece kalbimde kalanları sana ulaştırmak içindi
-</p>
+                    <p style="line-height:1.9;">
+                        Bundan sonrası için tek istediğim
+                        sana sevgimi ve saygımı gerçekten gösterebilmek
+                    </p>
 
-</div>
+                </div>
 
-</div>
+            </div>
+
+        </div>
+
+    </div>
 
 </section>
 
@@ -658,103 +745,52 @@ Bu sayfa sadece kalbimde kalanları sana ulaştırmak içindi
 
 <script>
 
-
-/* GİRİŞ VE MÜZİK */
-
-function siteyiAc(){
-
-const giris=document.getElementById('giris');
-
-const muzik=document.getElementById('muzik');
-
-
-/*
-Berkay - Sen Varsın
-YouTube resmi kayıt
-*/
-
-muzik.src=
-'https://www.youtube.com/embed/-GjacQERtzA?autoplay=1&loop=1&playlist=-GjacQERtzA';
-
-
-giris.classList.add('kapat');
-
-
-setTimeout(()=>{
-
-document.body.style.overflowX='hidden';
-
-},1000);
-
-}
-
-
-/* SUPABASE */
-
-const client=supabase.createClient(
-SUPABASE_URL,
-SUPABASE_KEY
-);
-
-
-async function cevap(metin){
-
-const status=document.getElementById('status');
-
-status.textContent='Cevabın gönderiliyor';
-
-
-const {error}=await client
-.from('ozge_cevaplari')
-.insert({
-cevap:metin
-});
-
-
-if(error){
-
-status.textContent=
-'Cevap gönderilemedi internet bağlantısını kontrol et';
-
-console.error(error);
-
-}else{
-
-status.innerHTML=
-'Cevabın ulaştı 🤍<br>Teşekkür ederim';
-
-}
-
-}
-
-
 /* YAZILARIN ANİMASYONU */
 
-const els=document.querySelectorAll('.fade');
+const elements = document.querySelectorAll(".fade");
 
+const observer = new IntersectionObserver(
+    entries => {
 
-const io=new IntersectionObserver(
-entries=>{
+        entries.forEach(entry => {
 
-entries.forEach(e=>{
+            if(entry.isIntersecting){
 
-if(e.isIntersecting){
+                entry.target.classList.add("show");
 
-e.target.classList.add('show');
+            }
 
-}
+        });
 
-});
-
-},
-{
-threshold:.12
-}
+    },
+    {
+        threshold:.12
+    }
 );
 
+elements.forEach(element => {
+    observer.observe(element);
+});
 
-els.forEach(e=>io.observe(e));
 
+/* SON MESAJ */
+
+function showMessage(){
+
+    const message = document.getElementById("message");
+
+    message.classList.toggle("open");
+
+}
+
+
+/* SAYFA AÇILINCA YUKARI ÇIK */
+
+window.onload = function(){
+
+    window.scrollTo(0,0);
+
+};
 
 </script>
 

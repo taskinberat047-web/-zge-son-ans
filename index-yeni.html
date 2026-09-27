@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Özgem ❤️</title>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:Georgia,serif;background:#09070a;color:#fff;
+  overflow-x:hidden;cursor:default
+}
+body::before{
+  content:"";position:fixed;inset:0;z-index:-2;
+  background:
+    linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.80)),
+    url("IMG-20260921-WA0000.jpg") center/cover no-repeat;
+  transform:scale(1.03)
+}
+body::after{
+  content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:radial-gradient(circle at center,rgba(255,70,120,.12),transparent 58%)
+}
+section{
+  min-height:100vh;display:flex;justify-content:center;align-items:center;
+  padding:65px 18px;position:relative
+}
+.container{width:100%;max-width:850px;text-align:center}
+.hero h1{
+  font-size:clamp(60px,15vw,125px);font-weight:400;letter-spacing:3px;
+  text-shadow:0 0 20px rgba(255,70,120,.65),0 0 55px rgba(255,70,120,.30);
+  animation:pulse 2.5s infinite
+}
+.heart{font-size:36px;margin-top:12px}
+.scroll{
+  position:absolute;bottom:30px;left:50%;transform:translateX(-50%);
+  font-size:12px;letter-spacing:3px;opacity:.7
+}
+.scroll span{display:block;font-size:22px;margin-top:8px;animation:down 1.5s infinite}
+.card{
+  width:100%;padding:38px 26px;border-radius:25px;
+  background:rgba(10,8,12,.72);backdrop-filter:blur(12px);
+  border:1px solid rgba(255,255,255,.13);
+  box-shadow:0 20px 70px rgba(0,0,0,.48)
+}
+.card h2{font-size:32px;font-weight:400;margin-bottom:26px}
+.card p{font-size:18px;line-height:1.9;color:#f4edf0;margin-bottom:17px}
+.photo{
+  width:100%;max-width:520px;margin:0 auto 30px;overflow:hidden;
+  border-radius:25px;border:1px solid rgba(255,255,255,.15);
+  box-shadow:0 20px 60px rgba(0,0,0,.7)
+}
+.photo img{width:100%;display:block}
+.poem{text-align:left}
+.poem h2{text-align:center}
+.poem p{white-space:pre-line;font-size:17px;line-height:2}
+.signature{margin-top:35px;font-size:28px;color:#ffb5c9}
+.final-message{font-size:19px;line-height:2}
+.fade{opacity:0;transform:translateY(35px);transition:1s ease}
+.fade.show{opacity:1;transform:translateY(0)}
+#musicFrame{
+  position:fixed;width:1px;height:1px;left:-10px;top:-10px;
+  opacity:0;pointer-events:none;border:0
+}
+.musicHint{
+  position:fixed;left:50%;bottom:18px;transform:translateX(-50%);
+  z-index:10;padding:10px 17px;border-radius:30px;
+  background:rgba(20,10,15,.78);border:1px solid rgba(255,160,185,.35);
+  color:#fff;font-size:13px;backdrop-filter:blur(8px);
+  opacity:.9;transition:.5s
+}
+.musicHint.hide{opacity:0;pointer-events:none}
+button{
+  border:1px solid rgba(255,130,160,.45);border-radius:50px;
+  padding:14px 24px;background:rgba(255,70,120,.14);color:#fff;
+  font-size:16px;cursor:pointer
+}
+.hidden{display:none}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.04)}}
+@keyframes down{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
+@media(max-width:600px){
+  section{padding:50px 15px}
+  .card{padding:30px 19px;border-radius:20px}
+  .card h2{font-size:27px}
+  .card p{font-size:16px;line-height:1.8}
+  .poem p{font-size:16px;line-height:1.9}
+  .final-message{font-size:17px}
+}
+</style>
+</head>
+
+<body>
+
+<!-- Berkay - Sen Varsın: resmi YouTube videosu -->
+<iframe id="musicFrame"
+  src="https://www.youtube.com/embed/-GjacQERtzA?enablejsapi=1&playsinline=1&loop=1&playlist=-GjacQERtzA"
+  allow="autoplay; encrypted-media"
+  title="Berkay - Sen Varsın"></iframe>
+
+<div id="musicHint" class="musicHint">Müziği başlatmak için ekrana dokun ❤️</div>
+
+<!-- GİRİŞ: SADECE ÖZGEM -->
+<section class="hero" id="top">
+  <div class="container">
+    <h1>Özgem</h1>
+    <div class="heart">❤️</div>
+  </div>
+  <div class="scroll">Aşağı kaydır<span>↓</span></div>
+</section>
+
+<!-- ASIL MESAJ -->
+<section>
+  <div class="container">
+    <div class="card fade">
+      <h2>Bu kez sana gerçekten anlatmak istiyorum</h2>
+
+      <p>
+        Özgem ben bu siteyi seni bir şeye mecbur etmek için hazırlamadım
+      </p>
+
+      <p>
+        Sana yeniden ulaşabilmek ve aramızdaki kırgınlığı düzeltmek için
+        elimden geleni yapmak istediğimi anlatmak için hazırladım
+      </p>
+
+      <p>
+        Çünkü ben senden vazgeçmek istemiyorum
+      </p>
+
+      <p>
+        Seni kaybetmek bana bazı şeyleri çok daha net gösterdi
+        Seni ne kadar sevdiğimi ve hayatımda ne kadar özel bir yerde olduğunu
+      </p>
+
+      <p>
+        Ben gerçekten barışmak istiyorum
+        Ama bunu sadece sözlerle değil
+        davranışlarımla da göstermek istiyorum
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- FOTOĞRAF -->
+<section>
+  <div class="container">
+    <div class="photo fade">
+      <img src="IMG-20260921-WA0000.jpg" alt="Özge">
+    </div>
+
+    <div class="card fade">
+      <h2>Seni neden bırakmak istemiyorum</h2>
+
+      <p>
+        Çünkü sen benim için sıradan bir insan olmadın
+      </p>
+
+      <p>
+        Gülüşünle mutlu olduğum
+        sesini duyduğumda içimin rahatladığı
+        yanında kendimi başka türlü hissettiğim bir insan oldun
+      </p>
+
+      <p>
+        Aramızda yaşanan güzel şeyleri bir kenara atıp
+        sanki hiç yaşanmamış gibi davranmak istemiyorum
+      </p>
+
+      <p>
+        Ben o güzel şeylerin devam etmesini istiyorum
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ÖZÜR -->
+<section>
+  <div class="container">
+    <div class="card fade">
+      <h2>Senden özür diliyorum</h2>
+
+      <p>
+        Seni kırdığım
+        seni yorduğum
+        bazen sevgimi yanlış şekilde gösterdiğim her şey için özür dilerim
+      </p>
+
+      <p>
+        Bazı şeyleri geri alamam
+        ama hatalarımı görmezden de gelmek istemiyorum
+      </p>
+
+      <p>
+        Eğer beni affedersen
+        aynı şeyleri tekrar yaşatmamak için elimden geleni yapacağım
+      </p>
+
+      <p>
+        Sana sadece güzel sözler söylemek değil
+        güvenebileceğin biri olduğumu zamanla göstermek istiyorum
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- BARIŞMAK İSTEDİĞİM -->
+<section>
+  <div class="container">
+    <div class="card fade">
+      <h2>Benim istediğim şey çok basit</h2>
+
+      <p>
+        Ben seninle yeniden konuşmak istiyorum
+      </p>
+
+      <p>
+        Yeniden gülmek
+        yeniden güzel anılar biriktirmek
+        birbirimizi daha iyi anlamak istiyorum
+      </p>
+
+      <p>
+        Geçmişte yaptığım hataları sana tekrar yaşatmak istemiyorum
+      </p>
+
+      <p>
+        Eğer bana izin verirsen
+        sana sevgimi bu kez daha doğru göstermeye çalışacağım
+      </p>
+
+      <p>
+        Seni değiştirmeden
+        seni zorlamadan
+        seni kaybetme korkusuyla bunaltmadan
+        sadece seni anlayarak
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- SEVGİ VE SAYGI -->
+<section>
+  <div class="container">
+    <div class="card fade">
+      <h2>Sana söz vermek yerine sana göstermek istiyorum</h2>
+
+      <p>
+        Sana daha çok saygı göstermek istiyorum
+      </p>
+
+      <p>
+        Seni daha çok dinlemek
+        seni anlamaya çalışmak
+        kırıldığında bunu küçümsememek istiyorum
+      </p>
+
+      <p>
+        Sevgimi baskıya dönüştürmeden
+        yanında olduğumu hissettirmek istiyorum
+      </p>
+
+      <p>
+        Çünkü benim için barışmak sadece yeniden sevgili olmak değil
+      </p>
+
+      <p>
+        Birbirimize yeniden güvenebileceğimiz
+        daha güzel bir ilişki kurabilmek
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- UZUN ŞİİR -->
+<section>
+  <div class="container">
+    <div class="card poem fade">
+      <h2>Sana yazdığım son şiir değil</h2>
+
+      <p>
+Seni kaybetmek istemediğimi
+bu kadar geç anlamış olmak canımı acıtıyor
+
+Keşke bazı anlarda
+biraz daha sakin
+biraz daha anlayışlı
+biraz daha dikkatli olsaydım
+
+Keşke seni kırmadan önce
+kalbini düşünseydim
+
+Ama geçmişi değiştiremiyorum
+
+Yapabildiğim tek şey
+bugünden sonrasını değiştirmeye çalışmak
+
+Ben senden kusursuz bir sevgi istemiyorum
+Sadece yeniden birbirimizi anlayabileceğimiz
+bir yol istiyorum
+
+Çünkü ben seni hâlâ seviyorum
+
+Gülüşünü seviyorum
+sesini seviyorum
+bana baktığın o anları seviyorum
+birlikte geçirdiğimiz güzel zamanları seviyorum
+
+Ama en çok
+senin hayatımda olmanı seviyorum
+
+Ben seni kazanmak için
+büyük sözler vermek istemiyorum
+
+Sana küçük şeylerle
+gerçek bir sevgi göstermek istiyorum
+
+Kırıldığında yanında olmak
+üzüldüğünde dinlemek
+mutlu olduğunda seninle gülmek
+
+Ve seni hiçbir zaman
+sevgimin altında ezmemek
+
+Eğer bir gün
+kalbinde bana küçücük bir yer kalırsa
+
+Ben o küçücük yeri bile
+hak etmek için elimden geleni yapacağım
+
+Senden hemen unutmanı istemiyorum
+Hemen affetmeni de istemiyorum
+
+Sadece beni tamamen silmeden önce
+bir gün yeniden nasıl biri olduğuma bakmanı istiyorum
+
+Çünkü ben değişmek istiyorum
+
+Senin için değil sadece
+kendim için de
+
+Ama en çok
+seni bir daha aynı şekilde kırmamak için
+
+Eğer bir gün yeniden elimi tutarsan
+bu kez o elin kıymetini daha iyi bileceğim
+
+Sana sadece
+seni seviyorum demeyeceğim
+
+Sana
+seni anlıyorum diyeceğim
+
+Sana
+sana güveniyorum diyeceğim
+
+Sana
+kararına saygı duyuyorum diyeceğim
+
+Ve bunların hepsini
+sözlerimle değil
+davranışlarımla göstereceğim
+
+Benim istediğim
+geçmişi silmek değil
+
+Geçmişten ders alıp
+seninle daha güzel bir gelecek kurabilmek
+
+Özgem
+
+Ben seninle barışmak istiyorum
+
+Ama bunu seni zorlayarak değil
+seni yeniden kazanmayı hak ederek yapmak istiyorum
+
+        ❤️
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- SON -->
+<section class="final">
+  <div class="container">
+    <div class="card fade">
+
+      <h2>Özgem</h2>
+
+      <div class="final-message">
+        <p>
+          Sana bu siteyi hazırlamamın tek sebebi
+          içimde kalanları sana gerçekten anlatabilmek
+        </p>
+
+        <p>
+          Ben senden vazgeçmek istemiyorum
+        </p>
+
+        <p>
+          Ben seninle barışmak istiyorum
+        </p>
+
+        <p>
+          Aramızdaki güzel şeylerin yeniden yaşanmasını istiyorum
+        </p>
+
+        <p>
+          Seni sevdiğimi
+          sana saygı duyduğumu
+          ve sana verdiğim değeri
+          bundan sonra davranışlarımla göstermek istiyorum
+        </p>
+
+        <p>
+          Eğer bir gün bana yeniden bir kapı açarsan
+          o kapıdan içeri girerken geçmişte yaptığım hataları da
+          yanımda taşıyıp tekrar etmeyeceğim
+        </p>
+
+        <p>
+          Seni zorlamayacağım
+          ama senden vazgeçmediğimi de saklamayacağım
+        </p>
+
+        <p>
+          Çünkü benim kalbimde hâlâ
+          sen varsın
+        </p>
+      </div>
+
+      <div class="signature">
+        Seni seviyorum Özgem ❤️
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+/* YAZI ANİMASYONLARI */
+const elements=document.querySelectorAll(".fade");
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting)e.target.classList.add("show");
+  });
+},{threshold:.12});
+elements.forEach(e=>observer.observe(e));
+
+/* MÜZİK
+   Telefon tarayıcıları otomatik sesi engelleyebilir.
+   Kullanıcı ilk kez ekrana dokunduğunda YouTube oynatıcıya play komutu gönderilir.
+*/
+let musicStarted=false;
+const frame=document.getElementById("musicFrame");
+const hint=document.getElementById("musicHint");
+
+function startMusic(){
+  if(musicStarted)return;
+  musicStarted=true;
+
+  try{
+    frame.contentWindow.postMessage(
+      JSON.stringify({
+        event:"command",
+        func:"playVideo",
+        args:[]
+      }),
+      "*"
+    );
+  }catch(e){}
+
+  hint.classList.add("hide");
+}
+
+document.addEventListener("click",startMusic,{once:true});
+document.addEventListener("touchstart",startMusic,{once:true});
+
+window.onload=()=>{
+  window.scrollTo(0,0);
+};
+</script>
+
+</body>
+</html>
